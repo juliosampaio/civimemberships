@@ -1,0 +1,9 @@
+/* Add any CSS rules for Angular module "civimemberships" */
+.jscm-filter {
+
+}
+.jscm-filter .jscm-filter-group {
+  display: inline-block;
+  padding: 4px;
+  font-weight: bold;
+}

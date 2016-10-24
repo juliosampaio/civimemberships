@@ -1,0 +1,47 @@
+<div class="crm-container">
+  <div crm-ui-debug="myContact"></div>
+
+  <form name="myForm" crm-ui-id-scope>
+
+    <div crm-ui-accordion="{title: ts('Memberships')}">
+      <div class="jscm-filter">
+        <fieldset>
+          <legend>{{ts('Membership Start Date')}}</legend>
+          <div class="jscm-filter-group">
+            <label for="jscm-start-from">{{ts('From')}}:</label>
+            <input id="jscm-start-from" crm-ui-datepicker="{time: false}" ng-model="membershipFilter.startFrom"/>
+          </div>
+          <div class="jscm-filter-group">
+            <label for="jscm-start-to">{{ts('To')}}:</label>
+            <input id="jscm-start-to" crm-ui-datepicker="{time: false}" ng-model="membershipFilter.startTo"/>
+          </div>
+        </fieldset>
+        <div class="jscm-filter-group">
+          <button crm-icon="fa-search" data-ng-click="search()">Search</button>
+        </div>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>{{ts('Name')}}</th>
+            <th>{{ts('Type')}}</th>
+            <th>{{ts('Start Date')}}</th>
+            <th>{{ts('End Date')}}</th>
+            <th>{{ts('Source')}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-ng-repeat="member in memberships">
+            <td>{{member['api.Contact.getsingle'].display_name}}</td>
+            <td>{{member['api.MembershipType.getsingle'].name}}</td>
+            <td>{{member.start_date}}</td>
+            <td>{{member.end_date}}</td>
+            <td>{{member.source}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </form>
+
+</div>
